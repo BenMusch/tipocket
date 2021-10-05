@@ -36,7 +36,7 @@ pbank:
 	$(GOBUILD) $(GOMOD) -o bin/pbank cmd/pbank/main.go
 
 rawkv-linearizability:
-	cd testcase/rawkv-linearizability; make build; \
+	cd "${PWD}/testcase/rawkv-linearizability"; make build; \
 	cp bin/* ../../bin/
 
 tpcc:
@@ -49,25 +49,25 @@ txnkv:
 	$(GOBUILD) $(GOMOD) -o bin/chaos-txnkv cmd/txnkv/main.go
 
 pocket:
-	cd testcase/pocket; make build; \
+	cd "${PWD}/testcase/pocket"; make build; \
 	cp bin/* ../../bin/
 
 compare:
 	$(GOBUILD) $(GOMOD) -o bin/compare cmd/compare/*.go
 
 on-dup:
-	cd testcase/ondup; make build; \
+	cd "${PWD}/testcase/ondup"; make build; \
 	cp bin/* ../../bin/
 
 sqllogic:
-	cd testcase/sqllogictest; make build; \
+	cd "${PWD}/testcase/sqllogictest"; make build; \
 	cp bin/* ../../bin/
 
 region-available:
 	$(GOBUILD) $(GOMOD) -o bin/region-available cmd/region-available/*.go
 
 pessimistic:
-	cd testcase/pessimistic; make build; \
+	cd "${PWD}/testcase/pessimistic"; make build; \
 	cp bin/* ../../bin/
 
 crud:
@@ -83,59 +83,59 @@ follower-read:
 	$(GOBUILD) $(GOMOD) -o bin/follower-read cmd/follower-read/*.go
 
 titan:
-	cd testcase/titan; make build; \
+	cd "${PWD}/testcase/titan"; make build; \
 	cp bin/* ../../bin/
 
 resolve-lock:
-	cd testcase/resolve-lock ; make build; \
+	cd "${PWD}/testcase/resolve-lock "; make build; \
 	cp bin/* ../../bin/
 
 example:
-	cd testcase/example; make build; \
+	cd "${PWD}/testcase/example"; make build; \
 	cp bin/* ../../bin/
 
 list-append:
-	cd testcase/list-append; make build; \
+	cd "${PWD}/testcase/list-append"; make build; \
 	cp bin/* ../../bin/
 
 rw-register:
-	cd testcase/rw-register; make build; \
+	cd "${PWD}/testcase/rw-register"; make build; \
 	cp bin/* ../../bin/
 
 ledger:
-	cd testcase/ledger; make build; \
+	cd "${PWD}/testcase/ledger"; make build; \
 	cp bin/* ../../bin/
 
 bank:
-	cd testcase/bank; make build; \
+	cd "${PWD}/testcase/bank"; make build; \
 	cp bin/* ../../bin/
 
 block-writer:
-	cd testcase/block-writer; make build; \
+	cd "${PWD}/testcase/block-writer"; make build; \
 	cp bin/* ../../bin/
 
 stale-read:
-	cd testcase/stale-read; make build; \
+	cd "${PWD}/testcase/stale-read"; make build; \
 	cp bin/* ../../bin/
 
 vbank:
-	cd testcase/vbank; make build; \
+	cd "${PWD}/testcase/vbank"; make build; \
 	cp bin/* ../../bin/
 
 bank2:
-	cd testcase/bank2; make build; \
+	cd "${PWD}/testcase/bank2"; make build; \
 	cp bin/* ../../bin/
 
 verifier:
-	cd testcase/verifier; make build; \
+	cd "${PWD}/testcase/verifier"; make build; \
 	cp bin/* ../../bin/
 
 cross-region:
-	cd testcase/cross-region; make build; \
+	cd "${PWD}/testcase/cross-region"; make build; \
 	cp bin/* ../../bin/
 
 ttl:
-	cd testcase/ttl ; make build; \
+	cd "${PWD}/testcase/ttl "; make build; \
 	cp bin/* ../../bin/
 
 # +tipocket:scaffold:makefile_build_cmd
