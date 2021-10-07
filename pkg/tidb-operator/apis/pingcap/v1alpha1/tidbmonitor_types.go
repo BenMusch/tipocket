@@ -236,8 +236,7 @@ type ThanosSpec struct {
 type MonitorContainer struct {
 	corev1.ResourceRequirements `json:",inline"`
 
-	BaseImage string `json:"baseImage,omitempty"`
-	Version   string `json:"version,omitempty"`
+	Image string `json:"baseImage,omitempty"`
 	// +optional
 	ImagePullPolicy *corev1.PullPolicy `json:"imagePullPolicy,omitempty"`
 }

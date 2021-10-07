@@ -120,12 +120,16 @@ type TiDBClusterConfig struct {
 	TiFlashHubAddress string
 
 	// image versions
-	ImageVersion string
-	TiDBImage    string
-	TiKVImage    string
-	PDImage      string
-	TiFlashImage string
-	TiCDCImage   string
+	ImageVersion             string
+	TiDBImage                string
+	TiKVImage                string
+	PDImage                  string
+	TiFlashImage             string
+	TiCDCImage               string
+	TiDBMonitorImage         string
+	TiDBMonitorReloaderImage string
+	GrafanaImage             string
+	PrometheusImage          string
 
 	// configurations
 	TiDBConfig string
@@ -296,6 +300,10 @@ func init() {
 	flag.StringVar(&Context.TiDBClusterConfig.PDImage, "pd-image", "", "pd image")
 	flag.StringVar(&Context.TiDBClusterConfig.TiFlashImage, "tiflash-image", "", "tiflash image")
 	flag.StringVar(&Context.TiDBClusterConfig.TiCDCImage, "ticdc-image", "", "cdc image")
+	flag.StringVar(&Context.TiDBClusterConfig.TiDBMonitorImage, "monitor-image", "pingcap/tidb-monitor", "tidb-monitor image")
+	flag.StringVar(&Context.TiDBClusterConfig.TiDBMonitorReloaderImage, "monitor-reloader-image", "pingcap/tidb-monitor-reloader", "tidb-monitor-reloader image")
+	flag.StringVar(&Context.TiDBClusterConfig.GrafanaImage, "grafana-image", "grafana/grafana", "grafana image")
+	flag.StringVar(&Context.TiDBClusterConfig.PrometheusImage, "prometheus-image", "prometheus/prometheus", "prometheus image")
 
 	flag.StringVar(&Context.TiDBClusterConfig.TiDBConfig, "tidb-config", "", "path of tidb config file (cluster A in abtest case)")
 	flag.StringVar(&Context.TiDBClusterConfig.TiKVConfig, "tikv-config", "base64://W3N0b3JhZ2VdCnJlc2VydmUtc3BhY2UgPSAw", "path of tikv config file (cluster A in abtest case)")

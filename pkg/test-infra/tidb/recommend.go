@@ -275,8 +275,7 @@ func RecommendedTiDBCluster(ns, name string, clusterConfig fixture.TiDBClusterCo
 				Persistent: false,
 				Prometheus: v1alpha1.PrometheusSpec{
 					MonitorContainer: v1alpha1.MonitorContainer{
-						BaseImage: "prom/prometheus",
-						Version:   "v2.11.1",
+						Image: clusterConfig.PrometheusImage,
 					},
 					LogLevel: "info",
 				},
@@ -285,20 +284,17 @@ func RecommendedTiDBCluster(ns, name string, clusterConfig fixture.TiDBClusterCo
 						Type: corev1.ServiceType(fixture.Context.TiDBMonitorSvcType),
 					},
 					MonitorContainer: v1alpha1.MonitorContainer{
-						BaseImage: "grafana/grafana",
-						Version:   "6.0.1",
+						Image: clusterConfig.GrafanaImage,
 					},
 				},
 				Initializer: v1alpha1.InitializerSpec{
 					MonitorContainer: v1alpha1.MonitorContainer{
-						BaseImage: "pingcap/tidb-monitor-initializer",
-						Version:   "nightly",
+						Image: util.BuildImage("tidb-monitor", clusterConfig.ImageVersion, clusterConfig.TiDBMonitorImage),
 					},
 				},
 				Reloader: v1alpha1.ReloaderSpec{
 					MonitorContainer: v1alpha1.MonitorContainer{
-						BaseImage: "pingcap/tidb-monitor-reloader",
-						Version:   "v1.0.1",
+						Image: util.BuildImage("tidb-monitor-reloader", clusterConfig.ImageVersion, clusterConfig.TiDBMonitorReloaderImage),
 					},
 				},
 				ImagePullPolicy: corev1.PullIfNotPresent,
