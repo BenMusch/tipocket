@@ -289,7 +289,7 @@ func RecommendedTiDBCluster(ns, name string, clusterConfig fixture.TiDBClusterCo
 				},
 				Initializer: v1alpha1.InitializerSpec{
 					MonitorContainer: v1alpha1.MonitorContainer{
-						Image: util.BuildImage("tidb-monitor", clusterConfig.ImageVersion, clusterConfig.TiDBMonitorImage),
+						Image: util.BuildImage("tidb-monitor-initializer", clusterConfig.ImageVersion, clusterConfig.TiDBMonitorInitializerImage),
 					},
 				},
 				Reloader: v1alpha1.ReloaderSpec{

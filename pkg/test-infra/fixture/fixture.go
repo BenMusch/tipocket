@@ -120,16 +120,16 @@ type TiDBClusterConfig struct {
 	TiFlashHubAddress string
 
 	// image versions
-	ImageVersion             string
-	TiDBImage                string
-	TiKVImage                string
-	PDImage                  string
-	TiFlashImage             string
-	TiCDCImage               string
-	TiDBMonitorImage         string
-	TiDBMonitorReloaderImage string
-	GrafanaImage             string
-	PrometheusImage          string
+	ImageVersion                string
+	TiDBImage                   string
+	TiKVImage                   string
+	PDImage                     string
+	TiFlashImage                string
+	TiCDCImage                  string
+	TiDBMonitorInitializerImage string
+	TiDBMonitorReloaderImage    string
+	GrafanaImage                string
+	PrometheusImage             string
 
 	// configurations
 	TiDBConfig string
@@ -300,7 +300,7 @@ func init() {
 	flag.StringVar(&Context.TiDBClusterConfig.PDImage, "pd-image", "", "pd image")
 	flag.StringVar(&Context.TiDBClusterConfig.TiFlashImage, "tiflash-image", "", "tiflash image")
 	flag.StringVar(&Context.TiDBClusterConfig.TiCDCImage, "ticdc-image", "", "cdc image")
-	flag.StringVar(&Context.TiDBClusterConfig.TiDBMonitorImage, "monitor-image", "pingcap/tidb-monitor", "tidb-monitor image")
+	flag.StringVar(&Context.TiDBClusterConfig.TiDBMonitorInitializerImage, "monitor-initializer-image", "pingcap/tidb-monitor-initializer", "tidb-monitor image")
 	flag.StringVar(&Context.TiDBClusterConfig.TiDBMonitorReloaderImage, "monitor-reloader-image", "pingcap/tidb-monitor-reloader", "tidb-monitor-reloader image")
 	flag.StringVar(&Context.TiDBClusterConfig.GrafanaImage, "grafana-image", "grafana/grafana", "grafana image")
 	flag.StringVar(&Context.TiDBClusterConfig.PrometheusImage, "prometheus-image", "prom/prometheus", "prometheus image")
