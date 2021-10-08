@@ -132,6 +132,24 @@ func chooseHub(image string) string {
 	return fixture.Context.HubAddress
 }
 
+// GetBaseImage returns the un-tagged base image name from an image name
+// which may or may not be tagged
+func GetBaseImage(image string) string {
+	if strings.Contains(image, ":") {
+		return strings.Split(image, ":")[0]
+	}
+	return image
+}
+
+// GetImageTag returns a tag from base an image name
+// which may or may not be tagged. If no tag is given, returns `default`
+func GetImageTag(image string) string {
+	if strings.Contains(image, ":") {
+		return strings.Split(image, ":")[1]
+	}
+	return "default"
+}
+
 // GetNodeIPsFromPod gets the IPs (or addresses) for nodes.
 func GetNodeIPsFromPod(cli client.Client, namespace string, podLabels map[string]string) ([]string, error) {
 	var ips []string

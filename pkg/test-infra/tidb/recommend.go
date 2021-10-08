@@ -275,7 +275,8 @@ func RecommendedTiDBCluster(ns, name string, clusterConfig fixture.TiDBClusterCo
 				Persistent: false,
 				Prometheus: v1alpha1.PrometheusSpec{
 					MonitorContainer: v1alpha1.MonitorContainer{
-						Image: clusterConfig.PrometheusImage,
+						BaseImage: util.GetBaseImage(clusterConfig.PrometheusImage),
+						Version:   util.GetImageTag(clusterConfig.PrometheusImage),
 					},
 					LogLevel: "info",
 				},
@@ -284,17 +285,20 @@ func RecommendedTiDBCluster(ns, name string, clusterConfig fixture.TiDBClusterCo
 						Type: corev1.ServiceType(fixture.Context.TiDBMonitorSvcType),
 					},
 					MonitorContainer: v1alpha1.MonitorContainer{
-						Image: clusterConfig.GrafanaImage,
+						BaseImage: util.GetBaseImage(clusterConfig.GrafanaImage),
+						Version:   util.GetImageTag(clusterConfig.GrafanaImage),
 					},
 				},
 				Initializer: v1alpha1.InitializerSpec{
 					MonitorContainer: v1alpha1.MonitorContainer{
-						Image: util.BuildImage("tidb-monitor-initializer", clusterConfig.ImageVersion, clusterConfig.TiDBMonitorInitializerImage),
+						BaseImage: util.GetBaseImage(clusterConfig.TiDBMonitorInitializerImage),
+						Version:   util.GetImageTag(clusterConfig.TiDBMonitorInitializerImage),
 					},
 				},
 				Reloader: v1alpha1.ReloaderSpec{
 					MonitorContainer: v1alpha1.MonitorContainer{
-						Image: util.BuildImage("tidb-monitor-reloader", clusterConfig.ImageVersion, clusterConfig.TiDBMonitorReloaderImage),
+						BaseImage: util.GetBaseImage(clusterConfig.TiDBMonitorReloaderImage),
+						Version:   util.GetImageTag(clusterConfig.TiDBMonitorReloaderImage),
 					},
 				},
 				ImagePullPolicy: corev1.PullIfNotPresent,
