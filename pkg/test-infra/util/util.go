@@ -147,7 +147,7 @@ func GetImageTag(image string) string {
 	if strings.Contains(image, ":") {
 		return strings.Split(image, ":")[1]
 	}
-	return "default"
+	return "latest"
 }
 
 // GetNodeIPsFromPod gets the IPs (or addresses) for nodes.
