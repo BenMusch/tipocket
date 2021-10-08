@@ -303,7 +303,7 @@ func init() {
 	flag.StringVar(&Context.TiDBClusterConfig.TiDBMonitorImage, "monitor-image", "pingcap/tidb-monitor", "tidb-monitor image")
 	flag.StringVar(&Context.TiDBClusterConfig.TiDBMonitorReloaderImage, "monitor-reloader-image", "pingcap/tidb-monitor-reloader", "tidb-monitor-reloader image")
 	flag.StringVar(&Context.TiDBClusterConfig.GrafanaImage, "grafana-image", "grafana/grafana", "grafana image")
-	flag.StringVar(&Context.TiDBClusterConfig.PrometheusImage, "prometheus-image", "prometheus/prometheus", "prometheus image")
+	flag.StringVar(&Context.TiDBClusterConfig.PrometheusImage, "prometheus-image", "prom/prometheus", "prometheus image")
 
 	flag.StringVar(&Context.TiDBClusterConfig.TiDBConfig, "tidb-config", "", "path of tidb config file (cluster A in abtest case)")
 	flag.StringVar(&Context.TiDBClusterConfig.TiKVConfig, "tikv-config", "base64://W3N0b3JhZ2VdCnJlc2VydmUtc3BhY2UgPSAw", "path of tikv config file (cluster A in abtest case)")
