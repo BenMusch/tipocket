@@ -235,9 +235,8 @@ type ThanosSpec struct {
 // MonitorContainer is the common attributes of the container of monitoring
 type MonitorContainer struct {
 	corev1.ResourceRequirements `json:",inline"`
-
-	BaseImage string `json:"baseImage,omitempty"`
-	Version   string `json:"version,omitempty"`
+	// +k8s:openapi-gen=false
+	Image string `json:"image,omitempty"`
 	// +optional
 	ImagePullPolicy *corev1.PullPolicy `json:"imagePullPolicy,omitempty"`
 }
