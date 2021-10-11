@@ -141,8 +141,8 @@ func GetBaseImage(image string) string {
 	return image
 }
 
-// GetImageTag returns a tag from base an image name
-// which may or may not be tagged. If no tag is given, returns `default`
+// GetImageTag returns a tag from an image name
+// which may or may not be tagged. If no tag is given, returns `latest`
 func GetImageTag(image string) string {
 	if strings.Contains(image, ":") {
 		return strings.Split(image, ":")[1]
